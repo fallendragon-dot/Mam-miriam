@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para ti, mamá 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+      overflow: hidden;
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 100px auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffb6c1;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .flores {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flor {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      animation: flotar linear infinite;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenido">
+    <h1>🌹 Para mi madre hermosa: Miriam 🌹</h1>
+    <p>
+      Mamá, en tu amor encontré el refugio más cálido del universo, el abrazo que calma, la voz que guía y el corazón que nunca deja de amar.
+      Eres el sol que ilumina mis días oscuros y las estrellas que me acompañan cuando el cielo parece nublado.
+      Tus manos tejieron mi infancia con ternura, tus palabras sembraron confianza en mi alma, y tu fuerza me enseñó a nunca rendirme.
+      No hay distancia, tiempo ni palabras suficientes que puedan explicar cuánto te amo y cuánto te valoro.  
+      Gracias por ser el pilar de mi vida, por enseñarme a amar con el alma, a perdonar con el corazón y a luchar con dignidad.
+      Cada flor que florece, cada amanecer que nace, cada viento que sopla me recuerda lo bendecido que soy por tenerte.
+      Hoy y siempre, eres la reina de mi corazón, el milagro más grande que me dio la vida.  
+      Te amo con todo lo que soy. 💖
+    </p>
+  </div>
+
+  <div class="flores" id="flores-container"></div>
+
+  <script>
+    const flores = [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Rose_icon.svg/240px-Rose_icon.svg.png',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tulip_icon.png/240px-Tulip_icon.png',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Pink_rose_icon.svg/240px-Pink_rose_icon.svg.png'
+    ];
+
+    const container = document.getElementById('flores-container');
+
+    function crearFlor() {
+      const img = document.createElement('img');
+      img.src = flores[Math.floor(Math.random() * flores.length)];
+      img.className = 'flor';
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.animationDuration = (6 + Math.random() * 5) + 's';
+      img.style.transform = `scale(${0.6 + Math.random() * 0.6})`;
+      container.appendChild(img);
+
+      setTimeout(() => {
+        img.remove();
+      }, 12000);
+    }
+
+    setInterval(crearFlor, 600);
+  </script>
+
+</body>
+</html>
